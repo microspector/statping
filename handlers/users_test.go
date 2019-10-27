@@ -8,14 +8,14 @@ import (
 func TestUserRoutes(t *testing.T) {
 	tests := []HTTPTest{
 		{
-			Name:             "Users",
+			Name:             "Listing all users /users",
 			URL:              "/users",
 			Method:           "GET",
 			ExpectedStatus:   200,
 			ExpectedContains: []string{`<title>Statping | Users</title>`},
 		},
 		{
-			Name:             "User 2",
+			Name:             "Listing user id 2",
 			URL:              "/user/2",
 			Method:           "GET",
 			ExpectedStatus:   200,
