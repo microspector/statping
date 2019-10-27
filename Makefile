@@ -17,6 +17,7 @@ TRAVIS_BUILD_CMD='{ "request": { "branch": "master", "message": "Compile master 
 TEST_DIR=$(GOPATH)/src/github.com/hunterlong/statping
 PATH:=$(PATH)
 
+
 # build all arch's and release Statping
 release: dev-deps build-all
 
@@ -210,29 +211,11 @@ databases:
 #
 # run dep to install all required golang dependecies
 dep:
-	dep ensure -vendor-only
+	go get -u -v all
 
 # install all required golang dependecies
 dev-deps:
-	$(GOGET) github.com/stretchr/testify/assert
-	$(GOGET) golang.org/x/tools/cmd/cover
-	$(GOGET) github.com/mattn/goveralls
-	$(GOINSTALL) github.com/mattn/goveralls
-	$(GOGET) github.com/rendon/testcli
-	$(GOGET) github.com/robertkrimen/godocdown/godocdown
-	$(GOGET) github.com/karalabe/xgo
-	$(GOGET) github.com/GeertJohan/go.rice
-	$(GOGET) github.com/GeertJohan/go.rice/rice
-	$(GOINSTALL) github.com/GeertJohan/go.rice/rice
-	$(GOCMD) get github.com/axw/gocov/gocov
-	$(GOCMD) get gopkg.in/matm/v1/gocov-html
-	$(GOCMD) install gopkg.in/matm/v1/gocov-html
-	$(GOCMD) get github.com/mgechev/revive
-	$(GOCMD) get github.com/fatih/structs
-	$(GOGET) github.com/ararog/timeago
-	$(GOGET) gopkg.in/natefinch/lumberjack.v2
-	$(GOGET) golang.org/x/crypto/bcrypt
-	$(GOGET) github.com/99designs/gqlgen/...
+	go get -u -v all
 
 # remove files for a clean compile/build
 clean:
